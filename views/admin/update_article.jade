@@ -1,0 +1,24 @@
+extends layout.jade
+
+block content
+	h2 #{title}
+	.container
+		form.articleForm(action='/admin/upArticle',method='post')
+			input(type='hidden',name='article_id',value='#{article._id}')
+			p 
+				| 标题
+				input(type='text',name='title',value='#{article.title}')
+			p
+				| 编辑
+				input(type='text',name='author',value='#{article.author}')
+			p
+				| 分类
+				select(name='category',value='#{article.category}')
+					each cate in cates
+						option(value='#{cate}') #{cate}
+			p
+				| 内容
+				textarea(name='content')
+					| #{article.content}
+			p
+				input(type='submit',value='修改文章')

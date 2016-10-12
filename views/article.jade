@@ -1,0 +1,10 @@
+extends layout.jade
+
+block content
+	h2 #{article.title}
+	p
+		span.author 作者:#{article.author}　
+		span.time 时间:#{time}　
+		span.views 查看:#{article.meta.views}
+	div
+		| #{article.content}

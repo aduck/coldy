@@ -1,0 +1,22 @@
+extends layout.jade
+
+block content
+	h2 添加文章
+	.container
+		form.articleForm(action='/admin/postArticle',method='post')
+			p 
+				| 标题
+				input(type='text',placeholder='',name='title')
+			p
+				| 编辑
+				input(type='text',name='author')
+			p
+				| 分类
+				select(name='category')
+					each cate in cates
+						option(value='#{cate}') #{cate}
+			p
+				| 内容
+				textarea(name='content')
+			p
+				input(type='submit',value='发布文章')

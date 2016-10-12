@@ -1,0 +1,16 @@
+extends layout.jade
+
+block content
+	.container
+		ul
+			each article in articles
+				li 
+					| (已查看#{article.meta.views}次) <a href="/article/#{article._id}">#{article.title}</a>　
+					a(href="/admin/upArticle/#{article._id}") 修改
+					| 　
+					a(href="/admin/removeArticle/#{article._id}") 删除
+			else
+				li 没有文章
+		a(href='/admin/postArticle') 添加文章
+
+			
